@@ -15,6 +15,16 @@ plot_timeline(df, x="Month", y="Passengers_log_diff", title="Air Passengers Time
 
 from statsmodels.tsa.stattools import adfuller
 # checking for stationarity using adfuller
-adfuller(df['Passengers_log_diff'].dropna())
+result = adfuller(df['Passengers_log_diff'].dropna())
+
+print("ADF Statistic:", result[0])
+print("p-value:", result[1])
+print("Critical Values:", result[4])
+
+# Interpretation
+if result[1] < 0.05:
+    print("The time series is stationary (Reject H0).")
+else:
+    print("The time series is non-stationary (Fail to reject H0).")
 
 # other methods are box cox and taking diffrene 
