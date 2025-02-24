@@ -2,7 +2,7 @@ import tensorflow
 from tensorflow import keras 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D # there are 2 type of pooling min , average and maximum 
 from keras.datasets import mnist
 
 
