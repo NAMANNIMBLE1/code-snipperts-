@@ -83,6 +83,18 @@ validation_generator = test_datagen.flow_from_directory(
                     interpolation='nearest'
                 )
 
+early_stopping = keras.callbacks.EarlyStopping(
+                    monitor="val_loss",
+                    min_delta=0,
+                    patience=0,
+                    verbose=0,
+                    mode="auto",
+                    baseline=None,
+                    restore_best_weights=False,
+                    start_from_epoch=0,
+                )
+
+
 model.compile(optimizer='adam' , loss='categorical_crossentropy' , metrics=['accuracy'])
 model.fit(train_generator , validation_data=validation_generator , epochs=100 , batch_size=32 , callbacks= [early_stopping])
 
