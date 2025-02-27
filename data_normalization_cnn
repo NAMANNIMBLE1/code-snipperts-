@@ -1,0 +1,7 @@
+# normalizing 
+def process(image , label):
+    return tensorflow.cast(image/255.0 , tensorflow.float32) , label
+
+
+train_data = train_data.map(process)
+validation_ds = test_data.map(process)
